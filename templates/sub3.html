@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% set active_page = 'sub3' %}
+
+{% block content %}
+<style>
+    html { 
+        scroll-behavior: smooth; 
+        scroll-padding-top: 100px; 
+    }
+    .rnd-box {
+        background: #fbf9f6;
+        border-radius: 20px;
+        padding: 50px;
+        margin-bottom: 40px;
+        display: flex;
+        align-items: center;
+        gap: 60px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    }
+    .rnd-box.reverse {
+        flex-direction: row-reverse;
+    }
+    .rnd-text {
+        flex: 1.2;
+    }
+    .rnd-img-wrap {
+        flex: 1;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        background: #e2e8f0;
+    }
+    .rnd-img-wrap img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s ease;
+    }
+    .rnd-img-wrap img:hover {
+        transform: scale(1.03);
+    }
+</style>
+
+<!-- 1. 히로 배너 및 탭 메뉴 -->
+<section class="hero" style="height: 60vh; min-height: 500px; background-image: url('https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1920');">
+    <div class="hero-content left-align">
+        <span class="hero-category">R&D / Press</span>
+        <h1>The First Food for All</h1>
+        <hr class="hero-divider">
+        <p>끊임없는 연구와 혁신으로 대한민국 축산업의 미래를 선도합니다.</p>
+        
+        <div class="hero-tabs" id="rndTabs">
+            <a href="#lab" class="tab active" onclick="activateTab(this)">중앙연구소</a>
+            <a href="#patents" class="tab" onclick="activateTab(this)">특허 및 연구</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. 중앙연구소 섹션 -->
+<section id="lab">
+    <div class="section-inner" style="max-width: 1200px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-title" style="margin-bottom: 10px;">중앙연구소 소개</h2>
+            <p class="section-subtitle" style="margin-bottom: 0;">끊임없는 연구와 혁신으로 대한민국 축산업의 미래를 선도합니다.</p>
+        </div>
+
+        <div class="rnd-box">
+            <div class="rnd-text">
+                <span style="color: #1e5a22; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 8px;">CENTRAL R&D LABORATORY</span>
+                <h3 style="font-size: 2.2rem; color: #111; margin-bottom: 20px; font-weight: 700;">과학적 영양 설계의 산실</h3>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                    대한사료 중앙연구소는 축종별 최적의 영양 요구량을 과학적으로 분석하고, 가축의 생육 단계별 맞춤형 사양 프로그램을 연구합니다.
+                </p>
+                <ul style="font-size: 1.05rem; line-height: 1.8; color: #555; padding-left: 20px; margin: 0;">
+                    <li>항생제 대체 물질(천연 식물 추출물) 실증 연구</li>
+                    <li>메탄가스 발생억제 환경경영 축우 정밀제어 개발</li>
+                    <li>빅데이터 기반 축종별 섭취량 예측 모델링(AI 연계)</li>
+                </ul>
+            </div>
+            <div class="rnd-img-wrap">
+                <img src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?q=80&w=800" alt="중앙연구소">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. 특허 및 연구 실적 섹션 (좌우 반전) -->
+<section id="patents" class="bg-light">
+    <div class="section-inner" style="max-width: 1200px;">
+        <div style="text-align: center; margin-bottom: 50px;">
+            <h2 class="section-title" style="margin-bottom: 10px;">특허 및 연구 실적</h2>
+            <p class="section-subtitle" style="margin-bottom: 0;">차별화된 기술력으로 다수의 특허와 학술 성과를 보유하고 있습니다.</p>
+        </div>
+
+        <div class="rnd-box reverse">
+            <div class="rnd-text">
+                <span style="color: #1e5a22; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 8px;">PATENTS & ACHIEVEMENTS</span>
+                <h3 style="font-size: 2.2rem; color: #111; margin-bottom: 20px; font-weight: 700;">공인된 기술 경쟁력</h3>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                    특허받은 그래뉼 공법 및 정밀 압출 기술 등 현장에 즉시 적용 가능한 원천 기술을 다수 확보하고 있으며, 국내외 유수 학회에 정기적으로 연구 성비를 발표하고 있습니다.
+                </p>
+                <ul style="font-size: 1.05rem; line-height: 1.8; color: #555; padding-left: 20px; margin: 0;">
+                    <li>한국축산학회 및 한국가금학회 정기 논문 게재</li>
+                    <li>양어사료 그래뉼 공법 등 다수 특허권 보유</li>
+                    <li>농촌진흥청 및 주요 대학교와의 산·학 공동 R&D 수행</li>
+                </ul>
+            </div>
+            <div class="rnd-img-wrap">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800" alt="특허 및 연구실적">
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function activateTab(element) {
+        document.querySelectorAll('#rndTabs .tab').forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
+    }
+</script>
+{% endblock %}

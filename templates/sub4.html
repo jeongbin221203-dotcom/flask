@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% set active_page = 'sub4' %}
+
+{% block content %}
+<style>
+    html { 
+        scroll-behavior: smooth; 
+        scroll-padding-top: 100px; 
+    }
+</style>
+
+<!-- 1. Career 히로 배너 및 탭 메뉴 -->
+<section class="hero" style="height: 60vh; min-height: 500px; background-image: url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920');">
+    <div class="hero-content left-align">
+        <span class="hero-category">Career</span>
+        <h1>The First Food for All</h1>
+        <hr class="hero-divider">
+        <p>자연을 이해하고, 생명을 존중하며, 미래를 함께 키웁니다.</p>
+        
+        <div class="hero-tabs" id="careerTabs">
+            <a href="#talent" class="tab active" onclick="activateTab(this)">인재상</a>
+            <a href="#job" class="tab" onclick="activateTab(this)">업무분야</a>
+            <a href="#notice" class="tab" onclick="activateTab(this)">채용공고</a>
+            <a href="#benefit" class="tab" onclick="activateTab(this)">복리후생</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. 인재상 섹션 -->
+<section id="talent">
+    <div class="section-inner">
+        <h2 class="section-title">인재상</h2>
+        <p class="section-subtitle">대한사료가 추구하는 핵심 역량을 갖춘 인재를 찾습니다.</p>
+        <div class="grid-4" style="grid-template-columns: repeat(3, 1fr);">
+            <div class="product-card">
+                <h3>정직과 성실</h3>
+                <p>기본을 지키고 원칙에 입각하여 투르고 공정한 업무를 수행하는 인재</p>
+            </div>
+            <div class="product-card">
+                <h3>도전과 혁신</h3>
+                <p>안주하지 않고 새로운 가치를 창출하기 위해 끊임없이 도전하는 인재</p>
+            </div>
+            <div class="product-card">
+                <h3>소통과 협업</h3>
+                <p>상호 존중을 바탕으로 동료 및 농가와 긴밀히 소통하고 협력하는 인재</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 3. 업무분야 섹션 -->
+<section id="job" class="bg-light">
+    <div class="section-inner">
+        <h2 class="section-title">업무분야</h2>
+        <p class="section-subtitle">대한사료의 가치를 만들어가는 주요 직무를 소개합니다.</p>
+        <div class="grid-4" style="grid-template-columns: repeat(2, 1fr);">
+            <div class="product-card" style="text-align: left;">
+                <h3 style="color: #1e5a22;">영업 및 사양컨설팅</h3>
+                <p>전국 축산 농가를 대상으로 맞춤형 사료 공급 및 전문 사양 컨설팅 제공</p>
+            </div>
+            <div class="product-card" style="text-align: left;">
+                <h3 style="color: #1e5a22;">생산 및 품질관리</h3>
+                <p>스마트 팩토리 시스템을 통한 안전하고 무결점인 사료 생산 및 품질 보증</p>
+            </div>
+            <div class="product-card" style="text-align: left;">
+                <h3 style="color: #1e5a22;">중앙연구소 (R&D)</h3>
+                <p>차세대 사료 원료 개발, 신제품 영양 설계 및 축산 학술 연구 수행</p>
+            </div>
+            <div class="product-card" style="text-align: left;">
+                <h3 style="color: #1e5a22;">경영지원 및 관리</h3>
+                <p>인사, 재무, 회계, 기획 및 물류 공급망(SCM) 관리 등 본사 지원 업무</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 4. 채용공고 섹션 -->
+<section id="notice">
+    <div class="section-inner">
+        <h2 class="section-title">채용공고</h2>
+        <p class="section-subtitle">대한사료와 함께 미래를 열어갈 동반자를 기다립니다.</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th width="10%">번호</th>
+                    <th width="50%">공고 제목</th>
+                    <th width="20%">모집 부문</th>
+                    <th width="20%">접수 기간</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><strong>[신입/경력] 영업관리 및 사양컨설팅 부문 정기 채용</strong></td>
+                    <td>영업/마케팅</td>
+                    <td>상시 채용</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td><strong>[경력] 중앙연구소 축우/양돈 영양학 연구원 모집</strong></td>
+                    <td>R&D (연구소)</td>
+                    <td>채용 시 마감</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- 5. 복리후생 섹션 -->
+<section id="benefit" class="bg-light">
+    <div class="section-inner">
+        <h2 class="section-title">복리후생</h2>
+        <p class="section-subtitle">임직원의 행복과 안정적인 삶을 지원하는 다양한 복리후생 제도를 운영합니다.</p>
+        <div class="grid-4">
+            <div class="product-card">
+                <h3>생활 안정</h3>
+                <p>주거 안정 자금 지원, 명절 귀성 여비 지급, 사내 동호회 활동 지원</p>
+            </div>
+            <div class="product-card">
+                <h3>건강 관리</h3>
+                <p>임직원 및 가족 종합 건강검진 지원, 단체 상해보험 가입</p>
+            </div>
+            <div class="product-card">
+                <h3>여가 지원</h3>
+                <p>전국 휴양시설(콘도) 이용 지원, 장기근속자 포상 및 휴가</p>
+            </div>
+            <div class="product-card">
+                <h3>자기 계발</h3>
+                <p>직무 역량 강화 교육비 지원, 도서 구매 지원 및 세미나 참석 기회</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function activateTab(element) {
+        document.querySelectorAll('#careerTabs .tab').forEach(t => t.classList.remove('active'));
+        element.classList.add('active');
+    }
+</script>
+{% endblock %}
