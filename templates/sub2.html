@@ -40,6 +40,58 @@
     .esg-img-wrap img:hover {
         transform: scale(1.03);
     }
+    .btn-detail {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 10px 22px;
+        background: #1a1a1a;
+        color: white;
+        border-radius: 30px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        margin-top: 25px;
+        transition: 0.3s;
+        cursor: pointer;
+        border: none;
+    }
+    .btn-detail:hover {
+        background: #1e5a22;
+    }
+
+    /* 환경경영 상세 팝업 모달 스타일 */
+    #envModal {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        z-index: 3000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+    }
+    .env-modal-content {
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        max-width: 700px;
+        width: 100%;
+        max-height: 85vh;
+        overflow-y: auto;
+        box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        position: relative;
+    }
+    .close-modal {
+        position: absolute;
+        top: 25px; right: 25px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #666;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+    .close-modal:hover { color: #1e5a22; }
 </style>
 
 <!-- 1. 히로 배너 및 탭 메뉴 -->
@@ -58,24 +110,25 @@
     </div>
 </section>
 
-<!-- 2. 환경경영 섹션 -->
+<!-- 2. 환경경영 섹션 (m31.php 녹색 기술 데이터 반영) -->
 <section id="env">
     <div class="section-inner" style="max-width: 1200px;">
         <div style="text-align: center; margin-bottom: 50px;">
             <h2 class="section-title" style="margin-bottom: 10px;">환경경영 (Environment)</h2>
-            <p class="section-subtitle" style="margin-bottom: 0;">자연과 조화롭게 공존하는 친환경 축산업을 선도합니다.</p>
+            <p class="section-subtitle" style="margin-bottom: 0;">동물과 자연, 그리고 사람이 공존하는 지속 가능한 친환경 축산업을 선도합니다.</p>
         </div>
         
         <div class="esg-box">
             <div class="esg-text">
-                <span style="color: #1e5a22; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 8px;">ENVIRONMENTAL VALUE</span>
-                <h3 style="font-size: 2.2rem; color: #111; margin-bottom: 20px; font-weight: 700;">친환경 가치 창출</h3>
-                <ul style="font-size: 1.05rem; line-height: 1.8; color: #555; padding-left: 20px; margin: 0;">
-                    <li>친환경 원료 조달 및 지속 가능한 자원 순환 체계 구축</li>
-                    <li>탄소저감형 배합 공정 설계로 온실가스 배출 최소화</li>
-                    <li>질소 및 인 배출 저감 특수 사료 개발 및 보급</li>
-                    <li>전 공장 내 태양광 발전 설비 확충을 통한 재생에너지 사용 확대</li>
-                </ul>
+                <span style="color: #1e5a22; font-weight: bold; font-size: 0.95rem; display: block; margin-bottom: 8px;">GREEN INNOVATION & SUSTAINABILITY</span>
+                <h3 style="font-size: 2.2rem; color: #111; margin-bottom: 20px; font-weight: 700;">저메탄 사료 및 자원 순환 체계</h3>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+                    대한사료는 축산업계의 탄소 감축 요구에 부응하여 메탄가스 발생을 억제하는 <strong>저메탄 특수 사료 기술</strong>을 연구·개발하고 있습니다.
+                </p>
+                <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+                    가축 분뇨 내 질소와 인 배출량을 저감하여 축사 환경을 개선하고, 전 공장 친환경 에너지 설비 확충으로 지구 환경 보호에 앞장섭니다.
+                </p>
+                <button onclick="openEnvModal()" class="btn-detail">환경경영 상세 기술 보기 →</button>
             </div>
             <div class="esg-img-wrap">
                 <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?q=80&w=800" alt="환경경영">
@@ -136,10 +189,49 @@
     </div>
 </section>
 
+<!-- 환경경영 상세 팝업 모달 -->
+<div id="envModal">
+    <div class="env-modal-content">
+        <button class="close-modal" onclick="closeEnvModal()">&times;</button>
+        <h2 style="color: #1e5a22; margin-top: 0; font-size: 1.8rem; margin-bottom: 20px;">🌱 대한사료 환경경영 상세 기술</h2>
+        
+        <p style="font-size: 1.05rem; line-height: 1.8; color: #555; margin-bottom: 15px;">
+            대한사료는 친환경 축산업의 미래를 선도하기 위해 과학적 데이터에 기반한 녹색 경영 체계를 전사적으로 실천하고 있습니다.
+        </p>
+
+        <h4 style="color: #111; font-size: 1.2rem; margin-top: 25px; margin-bottom: 10px; border-left: 4px solid #1e5a22; padding-left: 10px;">1. 저메탄 사료 및 온실가스 저감</h4>
+        <p style="font-size: 1rem; line-height: 1.7; color: #666; margin-bottom: 15px;">
+            반추가축의 소화 과정에서 발생하는 메탄가스를 효과적으로 저감할 수 있는 특수 사료 첨가제 배합 기술을 연구하며, 탄소 배출 최소화 공정을 구축했습니다.
+        </p>
+
+        <h4 style="color: #111; font-size: 1.2rem; margin-top: 25px; margin-bottom: 10px; border-left: 4px solid #1e5a22; padding-left: 10px;">2. 분뇨 내 질소·인 배출 저감</h4>
+        <p style="font-size: 1rem; line-height: 1.7; color: #666; margin-bottom: 15px;">
+            가축의 영양소 이용률을 극한으로 끌어올려 분변으로 배출되는 질소와 인의 양을 줄이고, 축사 내 악취 원인 물질을 원천적으로 억제합니다.
+        </p>
+
+        <h4 style="color: #111; font-size: 1.2rem; margin-top: 25px; margin-bottom: 10px; border-left: 4px solid #1e5a22; padding-left: 10px;">3. 친환경 공장 및 자원 순환</h4>
+        <p style="font-size: 1rem; line-height: 1.7; color: #666; margin-bottom: 25px;">
+            전 공장 태양광 발전 설비 도입 및 에너지 효율화를 통해 재생에너지 사용 비율을 높이고, 지속 가능한 자원 순환 체계를 확립해 나가고 있습니다.
+        </p>
+
+        <div style="text-align: center;">
+            <button onclick="closeEnvModal()" style="padding: 12px 30px; background: #1e5a22; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem;">확인</button>
+        </div>
+    </div>
+</div>
+
 <script>
     function activateTab(element) {
         document.querySelectorAll('#esgTabs .tab').forEach(t => t.classList.remove('active'));
         element.classList.add('active');
+    }
+
+    function openEnvModal() {
+        document.getElementById('envModal').style.display = 'flex';
+    }
+
+    function closeEnvModal() {
+        document.getElementById('envModal').style.display = 'none';
     }
 </script>
 {% endblock %}
